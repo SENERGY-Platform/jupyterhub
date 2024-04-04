@@ -5,11 +5,10 @@ RUN apt-get update
 
 RUN apt-get install -y wget && rm -rf /var/lib/apt/lists/*
 
-RUN wget \
-    https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
-    && mkdir /root/.conda \
-    && bash Miniconda3-latest-Linux-x86_64.sh -b \
-    && rm -f Miniconda3-latest-Linux-x86_64.sh 
+RUN mkdir -p ~/miniconda3 \
+    && wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh \
+    && bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3 \
+    && rm -rf ~/miniconda3/miniconda.sh
 
 ENV PATH="/home/jovyan/miniconda3/bin:${PATH}"
 ARG PATH="/home/jovyan/miniconda3/bin:${PATH}"
