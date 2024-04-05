@@ -30,4 +30,3 @@ COPY install_kernel.sh .
 RUN chmod +x install_kernel.sh
 RUN ./install_kernel.sh
 
-USER jovyan
