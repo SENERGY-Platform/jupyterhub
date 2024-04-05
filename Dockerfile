@@ -30,4 +30,7 @@ COPY install_kernel.sh .
 RUN chmod +x install_kernel.sh
 RUN ./install_kernel.sh
 
+# pyenv virtual env are installed in the .pyenv dir which is owned by root 
+RUN chmod -R a=rwx $HOME/.pyenv 
+
 USER jovyan
