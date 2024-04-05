@@ -22,6 +22,7 @@ RUN conda init bash \
     && exec bash \
     && conda create --name py3.8 python=3.8.16 \ 
     && conda activate py3.8 \
+    && conda install -n notebook_env nb_conda_kernels \
     && python -m ipykernel install --user --name=py3.8
 
 USER jovyan
